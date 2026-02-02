@@ -1,0 +1,75 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="homepage-container">
+    <h1>TaskMaster Pro</h1>
+    <p>
+        Organize your day, track your tasks, and boost your productivity 
+        with our simple yet powerful Django To-Do List app.
+    </p>
+    
+    <div class="links">
+        <a class="btn" href="{% url 'todolist' %}">View My Tasks</a>
+        <a class="btn" href="{% url 'about' %}">Learn About Us</a>
+        <a class="btn" href="{% url 'contact' %}">Reach Out</a>
+    </div>
+
+    <div class="documentation">
+        <h2>Getting Started:</h2>
+        <ol>
+            <li>Create a free account or log in.</li>
+            <li>Add your daily tasks and deadlines.</li>
+            <li>Mark tasks as complete and track your progress.</li>
+            <li>Stay productive and organized every day!</li>
+        </ol>
+    </div>
+</div>
+
+<style>
+.homepage-container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.links {
+    margin: 20px 0;
+}
+
+.links .btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 18px;
+    margin: 5px;
+    border-radius: 6px;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.links .btn:hover {
+    background-color: #45a049;
+}
+
+.documentation {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.documentation h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.documentation ol li {
+    margin: 8px 0;
+}
+</style>
+{% endblock %}
