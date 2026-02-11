@@ -1,0 +1,223 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<div class="contact-split-wrapper">
+    <!-- Background Shapes -->
+    <div class="bg-shapes">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+    </div>
+
+    <!-- Left Side: Contact Info -->
+    <div class="contact-info">
+        <h1>Get in Touch</h1>
+        <p>We'd love to hear from you! Reach out through any of the following channels:</p>
+        <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>123 Main Street, Your City</span>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <span>+63 912 345 6789</span>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <span>contact@example.com</span>
+        </div>
+    </div>
+
+    <!-- Right Side: Contact Form -->
+    <div class="contact-form-container">
+        <form class="contact-form">
+            <h2>Send a Message</h2>
+            <div class="input-group">
+                <label for="name"><i class="fas fa-user"></i> Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="input-group">
+                <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email" required>
+            </div>
+            <div class="input-group">
+                <label for="message"><i class="fas fa-comment"></i> Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+            </div>
+            <input type="submit" value="Send Message">
+        </form>
+    </div>
+</div>
+
+<!-- FontAwesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #74ebd5, #ACB6E5);
+}
+
+.contact-split-wrapper {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Background floating shapes */
+.bg-shapes .shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: float 6s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+.shape1 {
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    top: -50px;
+    left: -50px;
+}
+
+.shape2 {
+    width: 200px;
+    height: 200px;
+    background-color: #ffb6b9;
+    bottom: -30px;
+    right: -30px;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-20px); }
+}
+
+/* Left Side: Contact Info */
+.contact-info {
+    flex: 1;
+    background-color: rgba(255,255,255,0.95);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    z-index: 1;
+}
+
+.contact-info h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.info-item i {
+    font-size: 20px;
+    color: #4CAF50;
+}
+
+/* Right Side: Contact Form */
+.contact-form-container {
+    flex: 1;
+    background-color: rgba(255,255,255,0.95);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    z-index: 1;
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.contact-form label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 16px;
+    resize: vertical;
+    transition: all 0.3s;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 12px rgba(76, 175, 80, 0.25);
+    outline: none;
+}
+
+.contact-form input[type="submit"] {
+    padding: 16px 0;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .contact-split-wrapper {
+        flex-direction: column;
+    }
+
+    .contact-info, .contact-form-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+</style>
+{% endblock %}

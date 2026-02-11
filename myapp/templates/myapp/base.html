@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Website{% endblock %}</title>
+    <style>
+        /* Body background */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Soft pastel gradient */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background: linear-gradient(135deg, #ff6a00, #ee0979); /* Orange to pink gradient */
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255,255,255,0.3); /* Semi-transparent hover */
+            color: #fff200;
+        }
+
+        /* Active link styling */
+        .navbar a.active {
+            background-color: #fff200; /* Bright yellow for active link */
+            color: #ee0979; /* Contrasting text color */
+            font-weight: bold;
+        }
+
+        /* Content */
+        .content {
+            padding: 20px;
+        }
+
+        /* Optional: make content area slightly translucent */
+        .content {
+            background-color: rgba(255, 255, 255, 0.85);
+            margin: 20px auto;
+            border-radius: 12px;
+            max-width: 1100px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'homepage' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About</a>
+        <a href="{% url 'contact' %}" class="{% if request.path == '/contact/' %}active{% endif %}">Contact</a>
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
